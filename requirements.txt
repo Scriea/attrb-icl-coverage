@@ -21,3 +21,5 @@ spacy
 overrides==3.1.0
 progressbar==2.5
 edit_distance
+cattrs
+evaluate
