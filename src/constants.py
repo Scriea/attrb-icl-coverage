@@ -71,8 +71,6 @@ class LLM(str, Enum):
     STARCODER = 'bigcode/starcoder'
     INSTRUCTFALCON7B = "tiiuae/falcon-7b-instruct"
 
-tokenizer = AutoTokenizer.from_pretrained(model)
-
 D = Dataset
 max_new_tokens_d = {
     D.SST2: 4,
