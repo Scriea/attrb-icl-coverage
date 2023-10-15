@@ -23,3 +23,8 @@ progressbar==2.5
 edit_distance
 cattrs
 evaluate
+tiktoken
+torch
+omegaconf
+pydantic
+more_itertools
