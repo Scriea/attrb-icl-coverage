@@ -28,6 +28,8 @@ def get_enc_len_fn(lm: LLM):
         from transformers import LlamaTokenizer
         tokenizer = LlamaTokenizer.from_pretrained(llama_path('30B'))
         enc_len_fn = lambda x: len(tokenizer.encode(x))
+    elif lm==LLM.INSTRUCTFALCON7B:
+        tokenizer = AutoTokenizer.from_pretrained(lm.value)
     else:
         print(f'Using tiktoken tokenizer for {lm}')
         import tiktoken

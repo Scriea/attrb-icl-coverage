@@ -69,6 +69,9 @@ class LLM(str, Enum):
     LLAMA13B = 'llama-13B'
     LLAMA30B = 'llama-30B'
     STARCODER = 'bigcode/starcoder'
+    INSTRUCTFALCON7B = "tiiuae/falcon-7b-instruct"
+
+tokenizer = AutoTokenizer.from_pretrained(model)
 
 D = Dataset
 max_new_tokens_d = {
@@ -80,7 +83,6 @@ max_new_tokens_d = {
     D.QNLI: 1,
     D.MNLI: 1,
     D.CMSQA: 10,
-
     D.SMCALFLOW_CS: 256,
     D.SMCALFLOW: 200,
     D.GEOQUERY: 128,
@@ -89,7 +91,6 @@ max_new_tokens_d = {
     D.BREAK: 256,
     D.MTOP: 110,
     D.DROP: 25,
-
     D.GSM8K: 500,
     D.AQUA: 500,
 }
@@ -108,6 +109,7 @@ context_length_limit = {
     LLM.LLAMA7B: 2048,
     LLM.LLAMA13B: 2048,
     LLM.STARCODER: 7000,
+    LLM.INSTRUCTFALCON7B: 2048
 }
 
 default_prompt_version = {
