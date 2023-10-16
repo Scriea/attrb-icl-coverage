@@ -205,11 +205,15 @@ class AllParams(Parameters):
     def get_lm(self: AllParams) -> LLM:
         LP = self.llm
         generation_kwargs = dict(
-            temperature=LP.temperature, max_tokens=self.data.max_tokens, top_p=LP.top_p)
+            temperature=LP.temperature, 
+            max_tokens=self.data.max_tokens, 
+            top_p=LP.top_p
+            )
         common_kwargs = dict(
             model_name=LP.lm_name.value,
             batch_size=LP.lm_batch_size,
-            verbose=self.exp.debug)
+            verbose=self.exp.debug
+            )
         if LP.lm_type == P.OPENAI:
             from langchain import OpenAI
             openai_key = [l.strip() for l in open(LP.openai_keys_file).readlines()][0]

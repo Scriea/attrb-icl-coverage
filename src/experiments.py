@@ -156,6 +156,8 @@ def get_results(params_l: list[AllParams], train_results=False, coverage_results
 
 if True:    # Params
     lm_args_d = {
+        'instruct-falcon7B':dict(
+            lm_type = P.HUGGINGFACE, do_sample=False, lm_batch_size=7,),
         'openai': dict(
             lm_type=P.OPENAI, lm_url=None,
             lm_name=[LLM.CODE_CUSHMAN_001, LLM.CODE_DAVINCI_002],
@@ -235,9 +237,11 @@ def main(
     label: str = 'exp0',
     data_root: Path = Path('../data'),
     output_root: Path = Path('../results'),
-    seeds: str = '0;1;2;3;4', only_incomplete: bool = False,
+    seeds: str = '0;1;2;3;4', 
+    only_incomplete: bool = False,
     baselines_exp: Optional[bool] = False,
-    gpu: int = 0, debug: bool = False, tiny: bool = False, only_prompts: bool = False,
+    gpu: int = 0, debug: bool = False, 
+    tiny: bool = False, only_prompts: bool = False,
     datasets: str = 'geoquery', lms: str = 'codex', selectors: str = 'random',
     return_params: bool = False, print_only: str = '',
     run: bool = False, paramsfile: Path = Path('params.jsonl'),
